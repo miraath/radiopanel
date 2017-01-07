@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Streaming url:</strong>
+  <%= @radiostation.streaming_url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @radiostation.name %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @radiostation.logo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @radiostation.description %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @radiostation.active %>
+</p>
+
+<p>
+  <strong>Online:</strong>
+  <%= @radiostation.online %>
+</p>
+
+<%= link_to 'Edit', edit_radiostation_path(@radiostation) %> |
+<%= link_to 'Back', radiostations_path %>

@@ -1,0 +1,1 @@
+json.partial! "radiostations/radiostation", radiostation: @radiostation
