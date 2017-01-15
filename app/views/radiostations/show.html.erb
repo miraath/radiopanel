@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Json url:</strong>
+  <%= @radiostation.json_url %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @radiostation.name %>
 </p>
@@ -28,6 +33,11 @@
 <p>
   <strong>Online:</strong>
   <%= @radiostation.online %>
+</p>
+
+<p>
+  <strong>json:</strong>
+  <%= @radiostation.live_info %>
 </p>
 
 <%= link_to 'Edit', edit_radiostation_path(@radiostation) %> |

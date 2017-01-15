@@ -1,28 +1,24 @@
+require 'uri'
+require 'net/http'
+
 class RadiostationsController < ApplicationController
   before_action :set_radiostation, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-  # GET /radiostations
-  # GET /radiostations.json
   def index
-    @radiostations = Radiostation.all
+    @radiostations = Radiostation.where(active: true)
   end
 
-  # GET /radiostations/1
-  # GET /radiostations/1.json
   def show
   end
 
-  # GET /radiostations/new
   def new
     @radiostation = Radiostation.new
   end
 
-  # GET /radiostations/1/edit
   def edit
   end
 
-  # POST /radiostations
-  # POST /radiostations.json
   def create
     @radiostation = Radiostation.new(radiostation_params)
 
@@ -37,8 +33,6 @@ class RadiostationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /radiostations/1
-  # PATCH/PUT /radiostations/1.json
   def update
     respond_to do |format|
       if @radiostation.update(radiostation_params)
@@ -51,8 +45,6 @@ class RadiostationsController < ApplicationController
     end
   end
 
-  # DELETE /radiostations/1
-  # DELETE /radiostations/1.json
   def destroy
     @radiostation.destroy
     respond_to do |format|
@@ -69,6 +61,6 @@ class RadiostationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def radiostation_params
-      params.require(:radiostation).permit(:streaming_url, :name, :logo, :description, :active, :online)
+      params.require(:radiostation).permit(:streaming_url, :name, :logo, :description, :active, :online, :json_url)
     end
 end
