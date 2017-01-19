@@ -88,6 +88,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -230,6 +231,7 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   font-awesome-rails
+  i18n_data
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

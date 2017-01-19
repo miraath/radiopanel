@@ -61,6 +61,6 @@ class RadiostationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def radiostation_params
-      params.require(:radiostation).permit(:streaming_url, :name, :logo, :description, :active, :online, :json_url)
+      params.require(:radiostation).permit(:streaming_url, :name, :logo, :description, :active, :online, :json_url, :slug, :language)
     end
 end

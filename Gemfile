@@ -32,9 +32,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'simple_form'
-gem "paperclip", "~> 5.0.0"
-gem "font-awesome-rails"
+gem 'paperclip', '~> 5.0.0'
+gem 'font-awesome-rails'
 gem 'tether-rails'
+gem 'i18n_data'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

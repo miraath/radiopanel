@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115083945) do
+ActiveRecord::Schema.define(version: 20170119204426) do
 
   create_table "radiostations", force: :cascade do |t|
     t.string   "streaming_url"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20170115083945) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "json_url"
+    t.string   "slug"
+    t.string   "language"
+    t.integer  "weigth"
   end
 
   create_table "users", force: :cascade do |t|

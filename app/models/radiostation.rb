@@ -21,4 +21,7 @@ class Radiostation < ApplicationRecord
     obj = obj["data"][0]
   end
 
+  def self.language_list
+	I18nData.languages.invert
+  end
 end

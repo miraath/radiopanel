@@ -9,6 +9,9 @@
     <%= f.input :description %>
     <%= f.input :active %>
     <%= f.input :online %>
+    <%= f.input :language, collection: Radiostation.language_list %>
+    <%= f.input :weigth %>
+    <%= f.input :slug %>
   </div>
 
   <div class="form-actions">
