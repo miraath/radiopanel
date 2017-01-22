@@ -38,5 +38,5 @@
   <%= @radiostation.live_info %>
 </p>
 
-<%= link_to 'Edit', edit_radiostation_path(@radiostation) %> |
-<%= link_to 'Back', radiostations_path %>
+<%= link_to 'Show', @radiostation, class: "btn btn-default", role: "button" if @radiostation.streaming_url %>
+<%= link_to 'Back', radiostations_path, class: "btn btn-default", role: "button" %>

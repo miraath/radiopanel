@@ -35,7 +35,7 @@
           </a>
         </td>
         <td>
-          <%= link_to 'Destroy', radiostation, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to raw('<i class="fa fa-remove" aria-hidden="true"></i>'), radiostation, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
