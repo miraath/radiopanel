@@ -28,6 +28,10 @@ ENV RAILS_ENV production
 ENV RACK_ENV production
 ENV SECRET_KEY_BASE 4bf58fb84b69e93b4a204c92fee831e217ff2457f59850cd8bf764ed048cfd50ad0f21e2bd0b264ca418b846014d8fdd55c31692eb3cbc0a41ee104a1eaf01f5
 
+# install theme dependencies
+RUN npm i -g bower
+RUN bower install
+
 # Precompile Rails assets
 # RUN bundle exec rails db:create
 RUN bundle exec rails db:migrate
