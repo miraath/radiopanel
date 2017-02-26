@@ -1,0 +1,15 @@
+{
+  "name": "radiopanel",
+  "private": true,
+  "dependencies": {
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "perfect-scrollbar": "^0.6.12",
+    "flat-admin-bootstrap-templates": "master"
+  },
+  "overrides": {
+    "flat-admin-bootstrap-templates": {
+      "dependencies": []
+    }
+  }
+}

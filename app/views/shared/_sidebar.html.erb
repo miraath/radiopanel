@@ -1,0 +1,57 @@
+<aside class="app-sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <%= link_to radiostations_path, class: "sidebar-brand" do %>
+      <span class="highlight">Radio</span> Panel
+    <% end %>
+    <button type="button" class="sidebar-toggle">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="sidebar-menu">
+    <ul class="sidebar-nav">
+    <%
+      if @radiostations
+        @radiostations.all.each do |radiostation|
+    %>
+      <li class="<%=
+          ' active' if (radiostation.active)
+      %><%=
+          ' online' if (radiostation.online)
+      %><%=
+          ' live' if (radiostation.live_info[:is_live])
+      %>">
+        <%= link_to radiostation do %>
+          <div class="icon">
+            <% if radiostation.logo.url %>
+              <%= image_tag radiostation.logo.url %>
+            <% else %>
+              <i class="fa fa-feed" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="title">
+          <%= link_to radiostation, class: "" do %>
+            <%= radiostation.slug %>
+          <% end %>
+          <%= link_to edit_radiostation_path(radiostation) do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </li>
+    <%
+        end
+      end
+    %>
+    </ul>
+  </div>
+  <div class="sidebar-footer">
+    <ul class="menu">
+      <li>
+        <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-cogs" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
+    </ul>
+  </div>
+</aside>

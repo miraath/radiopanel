@@ -2,6 +2,7 @@ require 'uri'
 require 'net/http'
 
 class RadiostationsController < ApplicationController
+  before_action :get_radiostations
   before_action :set_radiostation, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
@@ -57,6 +58,10 @@ class RadiostationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_radiostation
       @radiostation = Radiostation.find(params[:id])
+    end
+
+    def get_radiostations
+      @radiostations = Radiostation.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,22 +1,22 @@
 <%= simple_form_for(@radiostation) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :streaming_url %>
-    <%= f.input :json_url %>
-    <%= f.input :name %>
-    <%= f.input :logo, as: :file %>
-    <%= f.input :description %>
-    <%= f.input :active %>
-    <%= f.input :online %>
-    <%= f.input :language, collection: Radiostation.language_list %>
-    <%= f.input :weigth %>
-    <%= f.input :slug %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn-primary' %>
-    <%= link_to 'Show', @radiostation, class: "btn btn-default", role: "button" if @radiostation.streaming_url %>
-    <%= link_to 'Back', radiostations_path, class: "btn btn-default", role: "button" %>
+<div class="card">
+  <div class="card-body">
+        <%= f.input :online %>
+        <%= f.input :active %>
+        <%= f.input :slug %>
+        <%= f.input :name %>
+        <%= f.input :streaming_url %>
+        <%= f.input :json_url %>
+        <%= f.input :description %>
+        <%= f.input :logo, as: :file %>
+        <%= f.input :language, collection: Radiostation.language_list %>
+        <%= f.input :weigth %>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn-primary' %>
+      <%= link_to 'Show', @radiostation, class: "btn btn-default", role: "button" if @radiostation.streaming_url %>
+      <%= link_to 'Back', radiostations_path, class: "btn btn-default", role: "button" %>
+    </div>
   </div>
 <% end %>

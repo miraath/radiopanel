@@ -19,3 +19,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore vendor installed with bower
+/vendor/*
+!/vendor/assets/

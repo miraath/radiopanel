@@ -1,42 +1,90 @@
-<p>
-  <strong>Streaming url:</strong>
-  <%= @radiostation.streaming_url %>
-</p>
-
-<p>
-  <strong>Json url:</strong>
-  <%= @radiostation.json_url %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @radiostation.name %>
-</p>
-
-<p>
-  <strong>Logo:</strong>
-  <%= @radiostation.logo %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @radiostation.description %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @radiostation.active %>
-</p>
-
-<p>
-  <strong>Online:</strong>
-  <%= @radiostation.online %>
-</p>
-
-<p>
-  <strong>json:</strong>
-  <%= @radiostation.live_info %>
-</p>
-
-<%= link_to 'Show', @radiostation, class: "btn btn-default", role: "button" if @radiostation.streaming_url %>
-<%= link_to 'Back', radiostations_path, class: "btn btn-default", role: "button" %>
+<% content_for :title, "Show: " + @radiostation.slug %>
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <div class="container">
+        <div class="row align-right">
+          <% if @radiostation.active %>
+            <span class="label label-info">Active</span>
+          <% else %>
+            <span class="label label-warning">Inactive</span>
+          <% end %>
+          <% if @radiostation.online %>
+            <span class="label label-success">Online</span>
+          <% else %>
+            <span class="label label-danger">Offline</span>
+          <% end %>
+          <% if @radiostation.live_info[:is_live] %>
+            <span class="label label-primary">On Air</span>
+          <% else %>
+            <span class="label label-default">Deferred</span>
+          <% end %>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 no-padding">
+            <% if @radiostation.logo.url %>
+              <%= image_tag @radiostation.logo.url %>
+            <% else %>
+              <i class="fa fa-feed" aria-hidden="true"></i>
+            <% end %>
+          </div>
+          <div class="col-xs-10 no-padding">
+            <h3><%= @radiostation.name %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body no-padding">
+      <div class="table-responsive">
+        <table class="table card-table">
+          <tbody>
+            <tr>
+              <td><strong>Slug:</strong></td>
+              <td><%= @radiostation.slug %></td>
+            </tr>
+            <tr>
+              <td><strong>Description:</strong></td>
+              <td><%= @radiostation.description %></td>
+            </tr>
+            <tr>
+              <td><strong>Streaming url:</strong></td>
+              <td><%= link_to @radiostation.streaming_url, @radiostation.streaming_url %></td>
+            </tr>
+            <tr>
+              <td><strong>Json url:</strong></td>
+              <td><%= link_to @radiostation.json_url, @radiostation.json_url %></td>
+            </tr>
+            <tr>
+              <td><strong>Listeners count:</strong></td>
+              <td><%= @radiostation.live_info[:listeners_count] %></td>
+            </tr>
+            <tr>
+              <td><strong>Currently playing:</strong></td>
+              <td><%= @radiostation.live_info[:current_playing] %></td>
+            </tr>
+            <tr>
+              <td><strong>Language:</strong></td>
+              <td><%= @radiostation.language %></td>
+            </tr>
+            <tr>
+              <td><strong>Weigth:</strong></td>
+              <td><%= @radiostation.weigth %></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="align-center">
+                <audio controls="controls">
+                  Your browser does not support the <code>audio</code> element.
+                  <source src="<%= @radiostation.streaming_url %>" type="audio/wav">
+                </audio>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer align-center">
+      <%= link_to 'Edit', edit_radiostation_path(@radiostation), class: "btn btn-primary", role: "button" %>
+      <%= link_to 'Back', radiostations_path, class: "btn btn-default", role: "button" %>
+    </div>
+  </div>
+</div>

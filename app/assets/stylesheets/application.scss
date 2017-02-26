@@ -1,11 +1,129 @@
-@import "tether";
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
+@import 'tether';
+// 'bootstrap-sprockets' must be imported before 'bootstrap' and 'bootstrap/variables'
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
 
-.logo-radio{
-	img{
-		height: 30px;
-	}
+// Flat theme
+// Vendor files:
+// @import 'flat-admin-bootstrap-templates/dist/html/assets/css/vendor';
+@import 'datatables.net-bs/css/dataTables.bootstrap.css';
+@import 'perfect-scrollbar/css/perfect-scrollbar.min.css';
+// flat-admin sass file :
+@import 'flat-admin-bootstrap-templates/dist/html/assets/css/flat-admin';
+// @import 'flat-admin-bootstrap-templates/src/app';
+@import 'flat-admin-bootstrap-templates/dist/html/assets/css/theme/blue-sky';
+// @import 'flat-admin-bootstrap-templates/src/style/theme/blue-sky.sass';
+
+// sidebar
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav {
+  & > li.online > a .icon {
+    background-color: rgba(240, 173, 78, .75);
+    color: rgba(99, 61, 9, .75);
+  }
+  & > li.active.online > a .icon {
+    background-color: rgba(92, 184, 92, .75);
+    color: rgba(39, 89, 39, .75);
+  }
+  & > li.active.online.live > a .icon {
+    background-color: rgba(9, 80, 119, .75);
+    color: rgba(9, 80, 119, .75);
+  }
+}
+
+
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.online > .title a  {
+  color: #f0ad4e;
+}
+
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active.online > .title a {
+  color: #5cb85c;
+}
+
+
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active.online.live > .title a {
+  color: #095077;
+}
+.sidebar-nav .title {
+  // margin-right: auto;
+  // margin-left: auto;
+  text-align: center;
+  a {
+    display: inline-block;
+  }
+}
+
+
+// index
+
+table.table tbody > tr,
+table.table thead > tr {
+  & > td,
+  & > th {
+    padding: 15px 10px;
+    &:first-child {
+      padding-left: 15px;
+    }
+    &:last-child {
+      padding-right: 15px;
+    }
+  }
+}
+
+table.table .action {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  // text-align: center
+}
+.logo-radio {
+  img {
+    height: 30px;
+  }
+}
+
+td > .label {
+  line-height: 1.8;
+  padding: .08em .6em;
+}
+
+// show
+.card-header {
+  img {
+    // height: 50px;
+    margin-top: 15px;
+    max-width: 100%;
+  }
+}
+.align-right {
+  text-align: right;
+}
+.align-center {
+  text-align: center;
+}
+
+// Form page
+.form-group {
+  @extend .col-md-6;
+  min-height: 82px;
+  .select.form-control {
+    min-height: 42px;
+  }
+}
+.form-group.boolean {
+  min-height: 45px;
+}
+.sidebar-nav .icon img {
+  max-width: 90%;
+  margin-top: 21%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// checkbox don't work as in the template, so we make it normal
+.checkbox input[type="checkbox"], .checkbox input[type="radio"], .radio input[type="checkbox"], .radio input[type="radio"] {
+  opacity: 100;
+}
+.checkbox label::before, .radio label::before {
+  border: none;
 }
