@@ -4,7 +4,8 @@ require 'net/http'
 class RadiostationsController < ApplicationController
   before_action :get_radiostations
   before_action :set_radiostation, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  caches_page :show, :index
 
   def index
     @radiostations = Radiostation.where(active: true)
