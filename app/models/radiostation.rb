@@ -1,6 +1,8 @@
 class Radiostation < ApplicationRecord
-	has_attached_file :logo
-	validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
+	has_attached_file :logo,
+		url:  "/radiostations/:style/:basename.:extension",
+		path: ":rails_root/public/radiostations/:style/:basename.:extension"
+	do_not_validate_attachment_file_type :logo
 
 	def live_info
 		raw_live_info = self.fetch_live_info
