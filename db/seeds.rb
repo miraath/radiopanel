@@ -67,7 +67,7 @@ Radiostation.create({
   "streaming_url": "http://178.32.57.87:7030/stream",
   "json_url": "http://miraath.ddns.net:2199/rpc/majaliss/streaminfo.get",
   "description": "مجالس ميراث الأنبياء التأصيلية",
-  "logo": "http://192.34.56.9/radiostations/original/miraath4.png?1492040080",
+  "logo": "http://192.34.56.9/radiostations/original/majaliss.png?1492040080",
   "logo_file_name": "majaliss.png",
   "online": true,
   "active": true,
