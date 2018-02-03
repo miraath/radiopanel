@@ -8,18 +8,24 @@ class Radiostation < ApplicationRecord
 
 	def live_info
 		raw_live_info = self.fetch_live_info
-		live_info = {
-			listeners_count: raw_live_info['listeners'],
-			current_playing: raw_live_info['song'],
-			is_live: raw_live_info['song'].include?('مباشر')
-		}
+		if raw_live_info.length > 0
+			live_info = {
+				listeners_count: raw_live_info['listeners'],
+				current_playing: raw_live_info['song'],
+				is_live: raw_live_info['song'].include?('مباشر')
+			}
+		end
 	end
 
   def fetch_live_info
     url = URI(self.json_url)
     http = Net::HTTP.new(url.host, url.port)
-    request = Net::HTTP::Get.new(url)
-    response = http.request(request)
+    begin
+    	request = Net::HTTP::Get.new(url)
+    	response = http.request(request)
+    rescue SocketError => e
+    	return [] 
+    end
     response.read_body
     obj = JSON.parse response.read_body
     obj = obj["data"][0]
