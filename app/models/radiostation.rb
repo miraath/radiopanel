@@ -1,4 +1,6 @@
 class Radiostation < ApplicationRecord
+	
+	scope :country, lambda {|country| where(country: country) }
 	has_attached_file :logo,
 		url:  "/radiostations/:style/:basename.:extension",
 		path: ":rails_root/public/radiostations/:style/:basename.:extension"

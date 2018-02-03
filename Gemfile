@@ -31,13 +31,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'country_select'
 gem 'simple_form'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'font-awesome-rails'
 gem 'tether-rails'
 gem 'i18n_data'
 gem 'actionpack-page_caching'
 gem 'whenever', require: false
+gem 'has_scope'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

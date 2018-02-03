@@ -5,9 +5,10 @@ class RadiostationsController < ApplicationController
   before_action :set_radiostation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   caches_page :show, :index
+  has_scope :country
 
   def index
-    @radiostations = Radiostation.where(active: true)
+    @radiostations = apply_scopes(Radiostation).where(active: true)
   end
 
   def show
@@ -62,6 +63,6 @@ class RadiostationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def radiostation_params
-      params.require(:radiostation).permit(:streaming_url, :name, :logo, :description, :active, :online, :json_url, :slug, :language)
+      params.require(:radiostation).permit(:streaming_url, :name, :logo, :description, :active, :online, :json_url, :slug, :language, :country)
     end
 end

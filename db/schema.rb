@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119204426) do
+ActiveRecord::Schema.define(version: 20180202175947) do
 
   create_table "radiostations", force: :cascade do |t|
     t.string   "streaming_url"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170119204426) do
     t.string   "slug"
     t.string   "language"
     t.integer  "weigth"
+    t.string   "country"
   end
 
   create_table "users", force: :cascade do |t|
